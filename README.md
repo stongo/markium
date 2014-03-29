@@ -1,4 +1,4 @@
-# <img src="https://s3.amazonaws.com/obvious/logos/M_45_black.png"/>arkium
+# <img src="https://s3.amazonaws.com/obvious/logos/M_45_black.png" height=36/>arkium
 > A service to convert Medium stories to Markdown
 
 Markium is a web server that takes stories on [Medium](https://medium.com) and converts them to Markdown.
