@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/expr/markium",
   "dependencies": {
-    "nipple": "^2.4.0",
     "hapi": "^3.1.0",
     "request": "^2.34.0",
     "boom": "^2.4.0"
