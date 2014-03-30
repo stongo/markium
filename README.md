@@ -3,6 +3,8 @@
 
 Markium is a web server that takes stories on [Medium](https://medium.com) and converts them to Markdown.
 
+![](images/web.png)
+
 ## Installation
 
 - Clone this repository somewhere.

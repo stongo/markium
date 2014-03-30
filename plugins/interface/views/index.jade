@@ -1,0 +1,57 @@
+doctype html
+
+html
+  head
+    title Markium
+    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js")
+    script.
+      var process = function() {
+          var url = document.querySelector("input").value,
+              md = document.querySelector("#markdown"),
+              rendered = document.querySelector("#rendered"),
+              re = /https:\/\/medium\.com\/([A-Za-z1-9-]+.?)\/([A-Za-z1-9]+.?)/,
+              converter = new Showdown.converter();
+          
+          if (re.test(url) !== true) {
+            // I'm so lazy...
+            return alert("Please enter a valid Medium story URL.");
+          }
+          
+          var req = new XMLHttpRequest();
+          
+          req.onload = function() {
+              md.textContent = this.responseText;
+              rendered.innerHTML = converter.makeHtml(this.responseText);
+          }
+          
+          req.open("GET", "/p/" + url.match(re)[2]);
+          req.send()
+      }
+  body
+    nav.navbar-wrapper.navbar-default.navbar-fixed-top
+      div.container
+        div.navbar-header
+          img(src="https://s3.amazonaws.com/obvious/logos/M_45_black.png")
+    div.jumbotron
+      div.container
+        div.row
+          div.col-md-8.col-md-offset-2
+            h2 Input a URL to a story on Medium
+            form(onsubmit="return false;")
+              div.input-group.input-group-lg
+                input.form-control(type="text",
+                                   placeholder="https://medium.com/p/xxxxxxxxx")
+                span.input-group-addon(onclick="process()") Convert!
+            p: small Or alternatively, rewrite links on Medium like the following:
+            p: small: strong https://medium.com/p/xxxxxxxx → http://markium.local/p/xxxxxxxx
+    div.container
+      div.row
+        div.col-md-6
+          h2: small Markdown
+          hr
+          pre#markdown
+        div.col-md-6
+          h2: small HTML
+          hr
+          div#rendered
