@@ -28,6 +28,7 @@ html
           req.open("GET", "/p/" + url.match(re)[2]);
           req.send()
       }
+  style body { padding-top: 45px; }
   body
     nav.navbar-wrapper.navbar-default.navbar-fixed-top
       div.container
@@ -44,7 +45,7 @@ html
                                    placeholder="https://medium.com/p/xxxxxxxxx")
                 span.input-group-addon.btn(onclick="process()") Convert!
             p: small Or alternatively, rewrite links on Medium like the following:
-            p: small: strong https://medium.com/p/xxxxxxxx → http://markium.local/p/xxxxxxxx
+            p: small: strong https://medium.com/p/xxxxxxxx → #{host}/p/xxxxxxxx
     div.container
       div.row
         div.col-md-6

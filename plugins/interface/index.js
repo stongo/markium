@@ -14,7 +14,7 @@ exports.register = function(plugin, options, next) {
         path: "/",
         method: "GET",
         handler: function(request, reply) {
-            reply.view("index");
+            reply.view("index", options);
         }
     });
     
