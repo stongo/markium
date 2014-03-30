@@ -10,7 +10,7 @@ html
           var url = document.querySelector("input").value,
               md = document.querySelector("#markdown"),
               rendered = document.querySelector("#rendered"),
-              re = /https:\/\/medium\.com\/([A-Za-z1-9-]+.?)\/([A-Za-z1-9]+.?)/,
+              re = /^https:\/\/medium.com\/([a-z-])+\/([a-z1-9]+)$/,
               converter = new Showdown.converter();
           
           if (re.test(url) !== true) {
